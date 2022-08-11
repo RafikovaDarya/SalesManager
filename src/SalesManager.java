@@ -1,12 +1,14 @@
 public class SalesManager {
 
     protected long[] sales;
-    long max;
-    long min;
+    protected long min;
+    protected long max;
 
 
-    public SalesManager(long[] sales) {
+    public SalesManager(long[] sales, long max, long min) {
         this.sales = sales;
+        this.max = max;
+        this.min = min;
     }
 
     public long max() {
@@ -31,10 +33,10 @@ public class SalesManager {
 
     public long stat() {
         long sum = 0;
-        for (long sale : sales) {
-            sum += sale;
+        for (long sale2 : sales) {
+            sum += sale2;
         }
-        long stat = (sum - min - max) / sales.length - 2;
+        long stat = (sum - min() - max()) / (sales.length - 2);
         return stat;
     }
 }
